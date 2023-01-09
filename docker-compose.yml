@@ -1,0 +1,49 @@
+version: '3.7'
+
+services:
+  api:
+    container_name: timesheet_api
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+      target: dev
+    restart: unless-stopped
+    ports: 
+      - 9000:9000
+    command: [sh, -c, 'npm run start:dev']
+    depends_on:
+      - mongodb
+      - redis
+    networks:
+      - timesheet_db_networks
+      - timesheet_cache_networks
+    volumes:
+      - ./api/src:/app/src
+
+  mongodb:
+    container_name: timesheet_mongodb
+    image: mongo:4.4
+    volumes:
+      - ./.docker/data/mongodb:/data/db
+    ports:
+      - 27017:27017
+    restart: unless-stopped
+    networks:
+      - timesheet_db_networks
+  
+  redis:
+    container_name: timesheet_redis
+    image: redis:5-alpine
+    volumes:
+      - ./.docker/data/redis:/data
+    restart: unless-stopped
+    networks:
+      - timesheet_cache_networks
+
+    
+    
+networks:
+  timesheet_db_networks:
+    driver: bridge
+  timesheet_cache_networks:
+    driver: bridge

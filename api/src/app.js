@@ -3,6 +3,9 @@ const app = express();
 const helmet = require("helmet");
 const morganMiddleware = require("./api/v1/middlewares/morgan/morgan.middleware");
 
+//init db connection
+require("./config/databases/init.mongodb");
+
 //user middleware
 app.use(helmet());
 app.use(morganMiddleware);
@@ -15,17 +18,16 @@ app.use(
   })
 );
 
+//router
 app.use("/v1", require("./api/v1/routes"));
 
 // Error Handling Middleware called
-
 app.use((req, res, next) => {
   const error = new Error("Not found");
   error.status = 404;
   next(error);
 });
-
-// error handler middleware
+// Error handler middleware
 app.use((error, req, res, next) => {
   res.status(error.status || 500).json({
     error: {
