@@ -49,17 +49,18 @@ const format = winston.format.combine(
 
 // Define which transports the logger must use to print out messages.
 // In this example, we are using three different transports
+const date = `${new Date().getFullYear()}-${(new Date().getMonth()) + 1}-${new Date().getDate()}`
 const transports = [
   // Allow the use the console to print the messages
   new winston.transports.Console(),
   // Allow to print all the error level messages inside the error.log file
   new winston.transports.File({
-    filename: "./src/api/v1/logs/error.log",
+    filename: `./src/api/v1/logs/${date}-error.log`,
     level: "error",
   }),
   // Allow to print all the error message inside the all.log file
   // (also the error log that are also printed inside the error.log(
-  new winston.transports.File({ filename: "./src/api/v1/logs/all.log" }),
+  new winston.transports.File({ filename: `./src/api/v1/logs/${date}-all.log` }),
 ];
 
 // Create the logger instance that has to be exported

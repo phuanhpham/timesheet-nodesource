@@ -1,11 +1,16 @@
 const express = require("express");
 const router = express.Router();
+const {
+  getUserController,
+  registerUserController,
+} = require("../controllers/user.controller");
+const { userRegisterDto } = require("../validate/user.validate");
 
-router.get("/", (req, res, next) => {
-  res.status(200).json({
-    status: "200",
-    msg: "users endpoint set up done",
-  });
-});
+
+// TEST
+router.get("/", getUserController);
+
+// LOGIN [POST]
+router.post("/register", userRegisterDto, registerUserController);
 
 module.exports = router;
