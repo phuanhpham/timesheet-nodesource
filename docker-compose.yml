@@ -1,6 +1,38 @@
 version: '3.7'
 
 services:
+
+  mysql:
+    container_name: timesheet_mysql
+    image: mysql:8.0.23
+    platform: linux/amd64
+    command: mysqld --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    restart: unless-stopped
+    ports:
+      - 3306:3306
+    volumes:
+      - ./.docker/data/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=my_db
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=root
+    security_opt:
+      - seccomp:unconfined
+    networks:
+      - timesheet_db_networks
+
+  adminer:
+    container_name: adminder_example
+    image: adminer
+    restart: unless-stopped
+    depends_on:
+      - mysql
+    ports:
+      - 8080:8080
+    networks:
+      - timesheet_db_networks
+
   api:
     container_name: timesheet_api
     build:
@@ -14,11 +46,13 @@ services:
     depends_on:
       - mongodb
       - redis
+      - mysql
     networks:
       - timesheet_db_networks
       - timesheet_cache_networks
     volumes:
       - ./api/src:/app/src
+      - ./api/tests:/app/tests
 
   mongodb:
     container_name: timesheet_mongodb

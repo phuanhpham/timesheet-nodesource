@@ -1,0 +1,270 @@
+2023-01-12 02:21:58:2158 [35mhttp[39m: [35m::ffff:172.20.0.1 POST /v1/users/login 500 76 - 41.351 ms[39m
+[35m[39m
+2023-01-12 02:24:07:247 [35mhttp[39m: [35m::ffff:172.20.0.1 POST /v1/users/login 500 76 - 17.324 ms[39m
+[35m[39m
+2023-01-12 02:25:19:2519 [35mhttp[39m: [35m::ffff:172.20.0.1 POST /v1/users/login 500 76 - 14.489 ms[39m
+[35m[39m
+2023-01-12 02:28:10:2810 [35mhttp[39m: [35m::ffff:172.20.0.1 POST /v1/users/login 500 76 - 12.931 ms[39m
+[35m[39m
+2023-01-12 02:29:18:2918 [35mhttp[39m: [35m::ffff:172.20.0.1 POST /v1/users/login 500 76 - 13.249 ms[39m
+[35m[39m
+2023-01-12 02:46:54:4654 [35mhttp[39m: [35m::ffff:172.20.0.1 POST /v1/users/login - - - - ms[39m
+[35m[39m
+2023-01-12 02:49:22:4922 [35mhttp[39m: [35m::ffff:172.20.0.1 POST /v1/users/login - - - - ms[39m
+[35m[39m
+2023-01-12 02:50:17:5017 [35mhttp[39m: [35m::ffff:172.20.0.1 POST /v1/users/login - - - - ms[39m
+[35m[39m
+2023-01-12 02:51:46:5146 [35mhttp[39m: [35m::ffff:172.20.0.1 POST /v1/users/login 200 384 - 137.267 ms[39m
+[35m[39m
+2023-01-12 04:23:56:2356 [35mhttp[39m: [35m::ffff:172.21.0.1 GET /v1/users 401 - - 6.287 ms[39m
+[35m[39m
+2023-01-12 04:24:29:2429 [35mhttp[39m: [35m::ffff:172.21.0.1 GET /v1/users 401 - - 1.677 ms[39m
+[35m[39m
+2023-01-12 04:24:40:2440 [35mhttp[39m: [35m::ffff:172.21.0.1 GET /v1/users 401 - - 0.815 ms[39m
+[35m[39m
+2023-01-12 04:24:47:2447 [35mhttp[39m: [35m::ffff:172.21.0.1 POST /v1/users/login 200 384 - 137.663 ms[39m
+[35m[39m
+2023-01-12 04:43:51:4351 [35mhttp[39m: [35m::ffff:172.21.0.1 GET /v1/users 200 34 - 31.122 ms[39m
+[35m[39m
+2023-01-12 04:44:37:4437 [35mhttp[39m: [35m::ffff:172.21.0.1 GET /v1/users - - - - ms[39m
+[35m[39m
+2023-01-12 04:46:59:4659 [35mhttp[39m: [35m::ffff:172.21.0.1 GET /v1/users 200 258 - 31.331 ms[39m
+[35m[39m
+2023-01-12 04:51:46:5146 [35mhttp[39m: [35m::ffff:172.21.0.1 GET /v1/users 500 112 - 40.065 ms[39m
+[35m[39m
+2023-01-12 04:52:24:5224 [35mhttp[39m: [35m::ffff:172.21.0.1 GET /v1/users 500 112 - 36.127 ms[39m
+[35m[39m
+2023-01-12 04:58:06:586 [35mhttp[39m: [35m::ffff:172.21.0.1 GET /v1/users 200 108 - 31.239 ms[39m
+[35m[39m
+2023-01-12 04:58:17:5817 [35mhttp[39m: [35m::ffff:172.21.0.1 GET /v1/users 200 124 - 40.662 ms[39m
+[35m[39m
+2023-01-12 05:00:54:054 [35mhttp[39m: [35m::ffff:172.21.0.1 GET /v1/users 200 124 - 10.690 ms[39m
+[35m[39m
+2023-01-12 05:16:13:1613 [35mhttp[39m: [35m::ffff:172.21.0.1 GET /v1/users 200 124 - 8.835 ms[39m
+[35m[39m
+2023-01-12 05:25:19:2519 [35mhttp[39m: [35m::ffff:172.21.0.1 GET /v1/users 401 - - 2.383 ms[39m
+[35m[39m
+2023-01-12 05:36:38:3638 [35mhttp[39m: [35m::ffff:172.21.0.1 POST /v1/users/login 200 462 - 157.794 ms[39m
+[35m[39m
+2023-01-12 05:36:54:3654 [35mhttp[39m: [35m::ffff:172.21.0.1 GET /v1/users 500 160 - 7.212 ms[39m
+[35m[39m
+2023-01-12 05:38:13:3813 [35mhttp[39m: [35m::ffff:172.21.0.1 GET /v1/users 200 124 - 43.194 ms[39m
+[35m[39m
+2023-01-12 05:38:55:3855 [35mhttp[39m: [35m::ffff:172.21.0.1 GET /v1/users 200 124 - 22.599 ms[39m
+[35m[39m
+2023-01-12 05:39:25:3925 [35mhttp[39m: [35m::ffff:172.21.0.1 GET /v1/users 200 124 - 39.988 ms[39m
+[35m[39m
+2023-01-12 05:40:16:4016 [35mhttp[39m: [35m::ffff:172.21.0.1 GET /v1/users 200 124 - 26.522 ms[39m
+[35m[39m
+2023-01-12 05:41:43:4143 [35mhttp[39m: [35m::ffff:172.21.0.1 GET /v1/users 403 42 - 29.647 ms[39m
+[35m[39m
+2023-01-12 06:28:19:2819 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 06:28:22:2822 [35mhttp[39m: [35m::ffff:172.25.0.1 GET /docs 404 42 - 6.139 ms[39m
+[35m[39m
+2023-01-12 06:28:23:2823 [35mhttp[39m: [35m::ffff:172.25.0.1 GET /favicon.ico 404 42 - 2.046 ms[39m
+[35m[39m
+2023-01-12 06:30:21:3021 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 06:30:30:3030 [35mhttp[39m: [35m::ffff:172.25.0.1 GET / 404 42 - 3.162 ms[39m
+[35m[39m
+2023-01-12 06:30:39:3039 [35mhttp[39m: [35m::ffff:172.25.0.1 GET /docs 404 42 - 0.564 ms[39m
+[35m[39m
+2023-01-12 06:31:55:3155 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 06:32:04:324 [35mhttp[39m: [35m::ffff:172.25.0.1 GET /docs 404 42 - 4.456 ms[39m
+[35m[39m
+2023-01-12 06:32:06:326 [35mhttp[39m: [35m::ffff:172.25.0.1 GET /docs 404 42 - 0.534 ms[39m
+[35m[39m
+2023-01-12 06:32:06:326 [35mhttp[39m: [35m::ffff:172.25.0.1 GET /docs 404 42 - 1.432 ms[39m
+[35m[39m
+2023-01-12 06:32:06:326 [35mhttp[39m: [35m::ffff:172.25.0.1 GET /docs 404 42 - 0.302 ms[39m
+[35m[39m
+2023-01-12 06:32:06:326 [35mhttp[39m: [35m::ffff:172.25.0.1 GET /docs 404 42 - 1.529 ms[39m
+[35m[39m
+2023-01-12 06:32:06:326 [35mhttp[39m: [35m::ffff:172.25.0.1 GET /docs 404 42 - 1.071 ms[39m
+[35m[39m
+2023-01-12 06:32:17:3217 [35mhttp[39m: [35m::ffff:172.25.0.1 GET /docs 404 42 - 0.504 ms[39m
+[35m[39m
+2023-01-12 06:32:24:3224 [35mhttp[39m: [35m::ffff:172.25.0.1 GET /docs 404 42 - 0.312 ms[39m
+[35m[39m
+2023-01-12 06:34:05:345 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 06:34:09:349 [35mhttp[39m: [35m::ffff:172.25.0.1 GET /docs 404 42 - 7.155 ms[39m
+[35m[39m
+2023-01-12 06:34:18:3418 [35mhttp[39m: [35m::ffff:172.25.0.1 GET /docs/docs.json 404 42 - 1.319 ms[39m
+[35m[39m
+2023-01-12 06:34:35:3435 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 06:34:39:3439 [35mhttp[39m: [35m::ffff:172.25.0.1 GET /docs 404 42 - 7.728 ms[39m
+[35m[39m
+2023-01-12 06:35:35:3535 [32minfo[39m: [32mDocs available at http://localhost:3000/docs[39m
+2023-01-12 06:35:36:3536 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 06:35:40:3540 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 06:35:41:3541 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 06:35:47:3547 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 06:35:47:3547 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 06:35:49:3549 [35mhttp[39m: [35m::ffff:172.25.0.1 GET /docs 301 175 - 4.439 ms[39m
+[35m[39m
+2023-01-12 06:35:49:3549 [35mhttp[39m: [35m::ffff:172.25.0.1 GET /docs/ 200 3103 - 3.458 ms[39m
+[35m[39m
+2023-01-12 06:35:49:3549 [35mhttp[39m: [35m::ffff:172.25.0.1 GET /docs/swagger-ui-init.js 200 1461 - 0.572 ms[39m
+[35m[39m
+2023-01-12 06:35:49:3549 [35mhttp[39m: [35m::ffff:172.25.0.1 GET /docs/swagger-ui.css 200 144966 - 10.811 ms[39m
+[35m[39m
+2023-01-12 06:35:49:3549 [35mhttp[39m: [35m::ffff:172.25.0.1 GET /docs/swagger-ui-standalone-preset.js 200 312217 - 12.408 ms[39m
+[35m[39m
+2023-01-12 06:35:49:3549 [35mhttp[39m: [35m::ffff:172.25.0.1 GET /docs/swagger-ui-bundle.js 200 1061579 - 12.276 ms[39m
+[35m[39m
+2023-01-12 06:35:50:3550 [35mhttp[39m: [35m::ffff:172.25.0.1 GET /docs/favicon-32x32.png 200 628 - 1.445 ms[39m
+[35m[39m
+2023-01-12 06:35:50:3550 [35mhttp[39m: [35m::ffff:172.25.0.1 GET /docs/favicon-32x32.png 304 - - 1.533 ms[39m
+[35m[39m
+2023-01-12 06:36:14:3614 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 06:36:37:3637 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 06:36:37:3637 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 06:36:39:3639 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 06:36:40:3640 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 06:39:25:3925 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 06:39:26:3926 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 06:41:16:4116 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 06:41:16:4116 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 06:41:20:4120 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 06:41:20:4120 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 06:42:30:4230 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 06:42:30:4230 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 06:43:36:4336 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 06:43:37:4337 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 06:44:37:4437 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 06:44:38:4438 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:08:11:811 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:08:12:812 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:08:26:826 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:08:26:826 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:08:52:852 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:08:53:853 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:09:11:911 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:09:12:912 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:09:54:954 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:09:55:955 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:10:16:1016 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:10:17:1017 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:10:49:1049 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:10:50:1050 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:11:05:115 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:11:06:116 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:12:11:1211 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:12:12:1212 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:12:14:1214 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:12:14:1214 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:13:06:136 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:13:06:136 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:16:15:1615 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:16:15:1615 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:16:41:1641 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:16:42:1642 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:16:55:1655 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:16:56:1656 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:17:27:1727 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:17:27:1727 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:17:38:1738 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:17:39:1739 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:17:50:1750 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:17:51:1751 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:19:06:196 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:19:07:197 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:20:10:2010 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:20:11:2011 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:20:25:2025 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:20:25:2025 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:25:52:2552 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:25:53:2553 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:29:03:293 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:29:04:294 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:29:31:2931 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:29:31:2931 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:30:58:3058 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:30:59:3059 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:31:18:3118 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:31:19:3119 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:32:00:320 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:32:01:321 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:34:30:3430 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:34:31:3431 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:34:34:3434 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:34:34:3434 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:35:11:3511 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:35:12:3512 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:36:17:3617 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:36:18:3618 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:37:11:3711 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:37:12:3712 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:37:44:3744 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:37:44:3744 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:52:55:5255 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:52:56:5256 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:53:02:532 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:53:03:533 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:53:36:5336 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:53:37:5337 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:54:02:542 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:54:03:543 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:55:00:550 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:55:01:551 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:56:37:5637 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:56:37:5637 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:56:53:5653 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 07:56:54:5654 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 08:02:08:28 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 08:02:09:29 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 08:07:09:79 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 08:07:09:79 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 08:07:38:738 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 08:07:39:739 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 08:08:24:824 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 08:08:43:843 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 08:08:48:848 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:14:48:1448 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:15:43:1543 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:15:48:1548 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:16:01:161 [35mhttp[39m: [35m::ffff:172.29.0.1 GET /favicon.ico 404 42 - 2.975 ms[39m
+[35m[39m
+2023-01-12 09:16:28:1628 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:16:52:1652 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:18:44:1844 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:19:04:194 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:19:25:1925 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:21:19:2119 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:26:13:2613 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:26:26:2626 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:27:48:2748 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:27:56:2756 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:28:29:2829 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:28:39:2839 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:28:48:2848 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:31:53:3153 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:33:28:3328 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:35:09:359 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:35:28:3528 [35mhttp[39m: [35m::ffff:172.29.0.1 GET /heathcheck 404 42 - 1.045 ms[39m
+[35m[39m
+2023-01-12 09:36:01:361 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:36:17:3617 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:36:49:3649 [35mhttp[39m: [35m::ffff:172.29.0.1 GET /v1/users/heathcheck 404 42 - 4.264 ms[39m
+[35m[39m
+2023-01-12 09:37:39:3739 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:38:11:3811 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:38:17:3817 [35mhttp[39m: [35m::ffff:172.29.0.1 GET /v1/heathcheck 200 35 - 2.507 ms[39m
+[35m[39m
+2023-01-12 09:38:43:3843 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:39:03:393 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:39:10:3910 [35mhttp[39m: [35m::ffff:172.29.0.1 GET /v1/heathcheck 304 - - 1.446 ms[39m
+[35m[39m
+2023-01-12 09:40:11:4011 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:40:53:4053 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:41:18:4118 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:41:43:4143 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:42:10:4210 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:43:18:4318 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:44:15:4415 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:45:16:4516 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:46:18:4618 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:47:27:4727 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:47:41:4741 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-12 09:47:55:4755 [35mhttp[39m: [35m::ffff:172.29.0.1 GET /v1/heathcheck 304 - - 2.340 ms[39m
+[35m[39m
+2023-01-12 10:00:04:04 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m

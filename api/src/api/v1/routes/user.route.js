@@ -1,16 +1,26 @@
-const express = require("express");
+const express = require('express');
+
 const router = express.Router();
+const passport = require('passport');
 const {
   getUserController,
   registerUserController,
-} = require("../controllers/user.controller");
-const { userRegisterDto } = require("../validate/user.validate");
+  loginUserController,
+} = require('../controllers/user.controller');
+const { userRegisterDto, userLoginDto } = require('../validate/user.validate');
+const passportMidlleware = require('../middlewares/passport/passport');
 
+// GETALLUSERS [GET]
+router.get(
+  '/',
+  passport.authenticate('jwt', { session: false }),
+  getUserController,
+);
 
-// TEST
-router.get("/", getUserController);
+// REGISTER [POST]
+router.post('/register', userRegisterDto, registerUserController);
 
 // LOGIN [POST]
-router.post("/register", userRegisterDto, registerUserController);
+router.post('/login', userLoginDto, loginUserController);
 
 module.exports = router;

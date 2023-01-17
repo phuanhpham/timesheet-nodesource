@@ -1,5 +1,19 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
+
 const { Schema } = mongoose;
+
+/**
+ * @openapi
+ * components:
+ *  schemas:
+ *    CreateUserInput:
+ *      type: object
+ *      required:
+ *        - email
+ *        - username
+ *        - password
+ *
+ */
 
 const userSchema = new Schema(
   {
@@ -17,13 +31,16 @@ const userSchema = new Schema(
     saltKey: {
       type: String,
     },
-    isAdmin: Boolean,
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
     info: Array,
   },
   {
-    collections: "users",
+    collections: 'users',
     timestamp: true,
-  }
+  },
 );
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model('User', userSchema);

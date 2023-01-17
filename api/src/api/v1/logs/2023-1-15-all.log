@@ -1,0 +1,29 @@
+2023-01-15 04:33:59:3359 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-15 04:57:04:574 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-15 04:57:29:5729 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-15 04:57:49:5749 [35mhttp[39m: [35m::ffff:172.20.0.1 POST /v2/test 200 19 - 39.772 ms[39m
+[35m[39m
+2023-01-15 04:59:24:5924 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-15 05:00:41:041 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-15 05:01:14:114 [35mhttp[39m: [35m::ffff:172.20.0.1 POST /v2/test 500 66 - 37.352 ms[39m
+[35m[39m
+2023-01-15 05:01:40:140 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-15 05:01:48:148 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-15 05:02:01:21 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-15 05:04:09:49 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-15 05:04:25:425 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-15 05:04:38:438 [35mhttp[39m: [35m::ffff:172.20.0.1 POST /v2/test 200 205 - 123.198 ms[39m
+[35m[39m
+2023-01-15 05:05:08:58 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-15 05:06:33:633 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-15 05:06:48:648 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-15 05:11:06:116 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-15 05:12:02:122 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-15 05:12:15:1215 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-15 05:12:39:1239 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-15 05:13:22:1322 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-15 05:16:10:1610 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-15 05:16:43:1643 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-15 05:17:40:1740 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-15 05:19:18:1918 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
+2023-01-15 05:26:08:268 [32minfo[39m: [32mDocs available at http://localhost:9000/docs[39m
