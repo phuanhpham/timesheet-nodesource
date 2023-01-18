@@ -39,15 +39,19 @@ module.exports = (sequelize, DataTypes) => {
       },
       password: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       role: {
         type: DataTypes.STRING,
-        default: 'user',
+        defaultValue: 'user',
       },
       registerType: {
         type: DataTypes.STRING,
         defaultValue: '1',
+      },
+      authGoogleID: {
+        type: DataTypes.STRING,
+        defaultValue: null,
       },
     },
     {

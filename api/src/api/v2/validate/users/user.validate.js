@@ -10,4 +10,7 @@ module.exports = {
 
     next();
   },
+  loginUserValidate: async (req, res, next) => {
+    next();
+  },
 };

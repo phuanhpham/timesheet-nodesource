@@ -22,7 +22,7 @@ module.exports = {
       },
       password: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       role: {
         type: Sequelize.STRING,
@@ -31,6 +31,10 @@ module.exports = {
       registerType: {
         type: Sequelize.STRING,
         defaultValue: '1',
+      },
+      authGoogleID: {
+        type: Sequelize.STRING,
+        defaultValue: null,
       },
       createdAt: {
         allowNull: false,
