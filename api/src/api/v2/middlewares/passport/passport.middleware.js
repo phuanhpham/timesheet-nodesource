@@ -39,12 +39,8 @@ passport.use(
       clientID: '727067276936-mb3odqmefp71j1q2fmkvpe27m6p88ifm.apps.googleusercontent.com',
       clientSecret: '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',
     },
-    async (accessToken, refreshToken, profile, done) => {
+    (async (accessToken, refreshToken, profile, done) => {
       try {
-        console.log('accessToken', accessToken);
-        console.log('refreshToken', refreshToken);
-        console.log('profile.id', profile.id);
-
         const user = await UserModel.findOne({
           where: {
             authGoogleID: profile.id,
@@ -59,10 +55,11 @@ passport.use(
           registerType: 2,
           authGoogleID: profile.id,
         });
-        done(null, createNewUser);
+
+        return done(null, createNewUser);
       } catch (error) {
         done(error, false);
       }
-    },
+    }),
   ),
 );
