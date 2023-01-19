@@ -54,8 +54,7 @@ jobs:
         id: docker_build
         with:
           context: ./
-          file: ./Dockerfile
-          target: prod
+          file: ./Dockerfile.prod
           builder: ${{ steps.buildx.outputs.name }}
           push: true
           tags: ${{ secrets.DOCKERHUB_ACCOUNT }}/timesheet_api
