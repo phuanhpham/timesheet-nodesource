@@ -65,8 +65,8 @@ jobs:
       - name: Build And Push Docker Image With v3
         uses: docker/build-push-action@v3
         with:
-          context: ./
-          file: ./Dockerfile
+          context: ./api
+          file: ./Dockerfile.prod
           push: true
           tags: ${{ secrets.DOCKERHUB_ACCOUNT }}/timesheet_api
 
