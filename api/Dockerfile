@@ -1,16 +1,23 @@
-FROM node:16-alpine as builder
+FROM node:16-alpine AS builder
 
 WORKDIR /app
 
-COPY package*.json ./
-
-RUN npm install -g sequelize-cli
+COPY . .
 
 RUN npm install
 
-COPY . .
+FROM builder AS dev
 
-FROM builder as dev
+RUN npm install -g sequelize-cli
 
 CMD []
 
+FROM builder AS prod
+
+RUN npm install
+
+RUN npm i -g pm2
+
+# CMD [ "pm2-runtime", "ecosystem.config.js", "--env", "production" ]
+
+CMD ["sh", "-c", "pm2-runtime ecosystem.config.js --env production"]
