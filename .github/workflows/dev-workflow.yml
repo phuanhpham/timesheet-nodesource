@@ -1,11 +1,11 @@
-name: Dev-Workflow
+name: Dev-Workflow 
 
 on:
   push:
-    branches: [dev]
+    branches: [develop]
   
   pull_request:
-    branches: [dev]
+    branches: [develop]
 
 jobs:
   run-linters:
