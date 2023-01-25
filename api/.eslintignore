@@ -1,1 +1,4 @@
 /tests/*
+/src/api/v2/databases/*
+/src/api/v2/middlewares/passport/*
+/src/api/v1/*

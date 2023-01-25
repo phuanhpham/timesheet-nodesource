@@ -11,13 +11,3 @@ FROM builder AS dev
 RUN npm install -g sequelize-cli
 
 CMD []
-
-FROM builder AS prod
-
-RUN npm install
-
-RUN npm i -g pm2
-
-# CMD [ "pm2-runtime", "ecosystem.config.js", "--env", "production" ]
-
-CMD ["sh", "-c", "pm2-runtime ecosystem.config.js --env production"]

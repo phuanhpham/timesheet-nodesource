@@ -1,0 +1,54 @@
+2023-01-25 05:49:18:4918 [31merror[39m: [31mError[39m
+[31m    at Query.run (/app/node_modules/sequelize/lib/dialects/mysql/query.js:52:25)[39m
+[31m    at /app/node_modules/sequelize/lib/sequelize.js:314:28[39m
+[31m    at processTicksAndRejections (node:internal/process/task_queues:96:5)[39m
+[31m    at async MySQLQueryInterface.createTable (/app/node_modules/sequelize/lib/dialects/abstract/query-interface.js:98:12)[39m
+[31m    at async Function.sync (/app/node_modules/sequelize/lib/model.js:942:7)[39m
+[31m    at async Sequelize.sync (/app/node_modules/sequelize/lib/sequelize.js:376:9)[39m
+[31m    at async initMysql (/app/src/config/databases/init.mysql.js:7:5) {[39m
+[31m  name: 'SequelizeDatabaseError',[39m
+[31m  parent: Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '[] DEFAULT , `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMA' at line 1[39m
+[31m      at Packet.asError (/app/node_modules/mysql2/lib/packets/packet.js:728:17)[39m
+[31m      at Query.execute (/app/node_modules/mysql2/lib/commands/command.js:29:26)[39m
+[31m      at Connection.handlePacket (/app/node_modules/mysql2/lib/connection.js:487:32)[39m
+[31m      at PacketParser.onPacket (/app/node_modules/mysql2/lib/connection.js:94:12)[39m
+[31m      at PacketParser.executeStart (/app/node_modules/mysql2/lib/packet_parser.js:75:16)[39m
+[31m      at Socket.<anonymous> (/app/node_modules/mysql2/lib/connection.js:101:25)[39m
+[31m      at Socket.emit (node:events:513:28)[39m
+[31m      at addChunk (node:internal/streams/readable:315:12)[39m
+[31m      at readableAddChunk (node:internal/streams/readable:289:9)[39m
+[31m      at Socket.Readable.push (node:internal/streams/readable:228:10) {[39m
+[31m    code: 'ER_PARSE_ERROR',[39m
+[31m    errno: 1064,[39m
+[31m    sqlState: '42000',[39m
+[31m    sqlMessage: "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '[] DEFAULT , `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMA' at line 1",[39m
+[31m    sql: "CREATE TABLE IF NOT EXISTS `user_timesheets` (`id` INTEGER NOT NULL auto_increment , `title` VARCHAR(255) NOT NULL, `userId` INTEGER NOT NULL, `description` VARCHAR(255), `date_time` DATETIME, `start_time` DATETIME, `end_time` DATETIME, `type` ENUM('pending', 'approved', 'done'), `status` ENUM('schedule', 'holiday', 'absenteeism'), `approver` TEXT[] DEFAULT , `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`), FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;",[39m
+[31m    parameters: undefined[39m
+[31m  },[39m
+[31m  original: Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '[] DEFAULT , `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMA' at line 1[39m
+[31m      at Packet.asError (/app/node_modules/mysql2/lib/packets/packet.js:728:17)[39m
+[31m      at Query.execute (/app/node_modules/mysql2/lib/commands/command.js:29:26)[39m
+[31m      at Connection.handlePacket (/app/node_modules/mysql2/lib/connection.js:487:32)[39m
+[31m      at PacketParser.onPacket (/app/node_modules/mysql2/lib/connection.js:94:12)[39m
+[31m      at PacketParser.executeStart (/app/node_modules/mysql2/lib/packet_parser.js:75:16)[39m
+[31m      at Socket.<anonymous> (/app/node_modules/mysql2/lib/connection.js:101:25)[39m
+[31m      at Socket.emit (node:events:513:28)[39m
+[31m      at addChunk (node:internal/streams/readable:315:12)[39m
+[31m      at readableAddChunk (node:internal/streams/readable:289:9)[39m
+[31m      at Socket.Readable.push (node:internal/streams/readable:228:10) {[39m
+[31m    code: 'ER_PARSE_ERROR',[39m
+[31m    errno: 1064,[39m
+[31m    sqlState: '42000',[39m
+[31m    sqlMessage: "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '[] DEFAULT , `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMA' at line 1",[39m
+[31m    sql: "CREATE TABLE IF NOT EXISTS `user_timesheets` (`id` INTEGER NOT NULL auto_increment , `title` VARCHAR(255) NOT NULL, `userId` INTEGER NOT NULL, `description` VARCHAR(255), `date_time` DATETIME, `start_time` DATETIME, `end_time` DATETIME, `type` ENUM('pending', 'approved', 'done'), `status` ENUM('schedule', 'holiday', 'absenteeism'), `approver` TEXT[] DEFAULT , `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`), FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;",[39m
+[31m    parameters: undefined[39m
+[31m  },[39m
+[31m  sql: "CREATE TABLE IF NOT EXISTS `user_timesheets` (`id` INTEGER NOT NULL auto_increment , `title` VARCHAR(255) NOT NULL, `userId` INTEGER NOT NULL, `description` VARCHAR(255), `date_time` DATETIME, `start_time` DATETIME, `end_time` DATETIME, `type` ENUM('pending', 'approved', 'done'), `status` ENUM('schedule', 'holiday', 'absenteeism'), `approver` TEXT[] DEFAULT , `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`), FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;",[39m
+[31m  parameters: {}[39m
+[31m}[39m
+2023-01-25 05:49:58:4958 [31merror[39m: [31m[39m
+[31m SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '[] DEFAULT , `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMA' at line 1[39m
+2023-01-25 05:50:38:5038 [31merror[39m: [31m[39m
+[31m SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '[], `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`' at line 1[39m
+2023-01-25 05:54:01:541 [31merror[39m: [31m[39m
+[31m SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '[], `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`' at line 1[39m

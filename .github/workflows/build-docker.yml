@@ -1,36 +1,14 @@
-name: Lint
+name: Build Image And Push
 
 on:
   push:
     branches: [main]
-  
-  pull_request:
-    branches: [main]
     
 jobs:
-  # run-linters:
-  #   name: Run Linters
-  #   runs-on: ubuntu-latest
-
-  #   steps:
-  #     - name: Check out git repository
-  #       uses: actions/checkout@v2
-
-  #     - name: Setup Nodejs 
-  #       uses: actions/setup-node@v1
-  #       with:
-  #         node-version: 16
-
-  #     - name: Intsall Node.js Dependencies
-  #       run: npm ci
-      
-  #     - name: Run Linters
-  #       run: npm run lint:fix
-  #       continue-on-error: true
-
   docker:
     name: Build Docker And Push On To DockerHub
     runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
     steps:
       - name: Checkout
         uses: actions/checkout@v2

@@ -1,13 +1,16 @@
 const bcrypt = require('bcryptjs');
-const { UserModel } = require('../databases/models');
-const {
-  generateAccessToken,
-} = require('../helpers/jwt.helpers');
+const { UserModel, UserInfoModel } = require('../databases/models');
+const { generateAccessToken } = require('../helpers/jwt.helpers');
 
 module.exports = {
   getAllUserService: async () => {
     try {
-      const users = await UserModel.findAll();
+      const users = await UserModel.findAll({
+        include: {
+          model: UserInfoModel,
+          as: 'userInfo',
+        },
+      });
 
       return {
         status: '10200',
@@ -26,12 +29,28 @@ module.exports = {
     const accessToken = await generateAccessToken(userRegisterDetailData);
 
     try {
-      const user = await UserModel.create({
-        username,
-        email,
-        password,
-        role,
-      });
+      const user = await UserModel.create(
+        {
+          username,
+          email,
+          password,
+          role,
+        },
+        {
+          include: [
+            {
+              model: UserInfoModel,
+              as: 'userInfo',
+            },
+          ],
+        },
+      );
+
+      if (user) {
+        await UserInfoModel.create({
+          userId: user.id,
+        });
+      }
 
       return { user, accessToken };
     } catch (error) {

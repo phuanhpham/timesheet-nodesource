@@ -1,6 +1,4 @@
-const {
-  Model,
-} = require('sequelize');
+const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class UserInfo extends Model {
@@ -11,38 +9,48 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate({ UserModel }) {
       // define association here
-      this.belongsTo(UserModel, { foreignKey: 'userId' });
+      this.belongsTo(UserModel, {
+        as: 'user',
+        foreignKey: 'userId',
+      });
+    }
+
+    toJSON() {
+      return {
+        ...this.get(),
+        id: undefined,
+        userId: undefined,
+      };
     }
   }
-  UserInfo.init({
-    uuid: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
+  UserInfo.init(
+    {
+      userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      first_name: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      last_name: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      tel: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      address: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
     },
-    userId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
+    {
+      sequelize,
+      tableName: 'user_infos',
+      modelName: 'UserInfoModel',
     },
-    first_name: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-    },
-    last_name: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-    },
-    tel: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-    },
-    address: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-    },
-  }, {
-    sequelize,
-    name: 'user_infos',
-    modelName: 'UserInfoModel',
-  });
+  );
   return UserInfo;
 };

@@ -2,7 +2,7 @@ const passport = require('passport');
 const JwtStrategy = require('passport-jwt').Strategy;
 const { ExtractJwt } = require('passport-jwt');
 const GooglePlusTokenStrategy = require('passport-google-plus-token');
-const { UserModel } = require('../../databases/models');
+const { UserModel, UserInfoModel } = require('../../databases/models');
 
 // JWT
 passport.use(
@@ -55,6 +55,12 @@ passport.use(
           registerType: 2,
           authGoogleID: profile.id,
         });
+
+        if (createNewUser) {
+          await UserInfoModel.create({
+            userId: createNewUser.id,
+          });
+        }
 
         return done(null, createNewUser);
       } catch (error) {

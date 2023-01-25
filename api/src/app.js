@@ -3,8 +3,8 @@ const express = require('express');
 const app = express();
 const helmet = require('helmet');
 const cors = require('cors');
-const morganMiddleware = require('./api/v1/middlewares/morgan/morgan.middleware');
-
+// const morganMiddleware = require('./api/v1/middlewares/morgan/morgan.middleware');
+const morganMiddlewarev2 = require('./api/v2/middlewares/morgan/morgan.middlewares');
 // const swaggerDoc = require('./api/v1/utils/swagger');
 
 // innit api docs with swagger
@@ -15,7 +15,8 @@ require('./config/databases/init.mysql')();
 
 // user middleware
 app.use(helmet());
-app.use(morganMiddleware);
+// app.use(morganMiddleware);
+app.use(morganMiddlewarev2);
 app.use(cors());
 
 // add body-parser

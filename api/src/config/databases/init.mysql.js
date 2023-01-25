@@ -1,11 +1,20 @@
 const { sequelize } = require('../../api/v2/databases/models');
+const logger = require('../../api/v2/helpers/logger');
 
 const initMysql = async () => {
   try {
+    // await sequelize.sync({ force: true });
+    // await sequelize.sync();
     await sequelize.authenticate();
-    console.log('MYSQL::: Connect successfully');
+    logger.log({
+      level: 'info',
+      message: 'MYSQL::: Connect successfully',
+    });
   } catch (error) {
-    console.log(error);
+    logger.log({
+      level: 'error',
+      message: `\n ${error}`,
+    });
   }
 };
 
