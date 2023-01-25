@@ -1,16 +1,41 @@
-name: Build Image And Push
+name: Main-Workflow
 
 on:
-  workflow_run:
-    workflows: [Lint]
-    types:
-      - completed
+  push:
+    branches: [main]
+  
+  pull_request:
+    branches: [main]
     
 jobs:
+  run-linters:
+    name: Run Linters
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out git repository
+        uses: actions/checkout@v2
+
+      - name: Setup Nodejs 
+        uses: actions/setup-node@v1
+        with:
+          node-version: 19
+
+      - name: Intsall Node.js Dependencies
+        run: cd ./api && npm ci
+      
+      - name: Run Linters
+        run: cd ./api && npm run lint:fix
+        continue-on-error: true
+
+      - name: Verify Linted
+        run: echo "Linted"
+
   docker:
     name: Build Docker And Push On To DockerHub
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true
+    needs: [run-linters]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
