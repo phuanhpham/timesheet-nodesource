@@ -7,5 +7,6 @@ router.get('/healthCheck', (req, res) => {
 });
 
 router.use('/users', require('./user.routes'));
+router.use('/timesheets', require('./timesheet.routes'));
 
 module.exports = router;
