@@ -20,7 +20,35 @@ module.exports = {
       throw new Error(error);
     }
   },
+  getUserInfosByIdService: async (id) => {
+    try {
+      const userInfo = await UserModel.findOne({
+        where: {
+          id,
+        },
+        include: [
+          {
+            model: UserInfoModel,
+            as: 'userInfo',
+          },
+        ],
+      });
 
+      if (!userInfo) {
+        return {
+          status: '10400',
+          msg: 'User not found!',
+        };
+      }
+
+      return {
+        status: '10200',
+        userInfo,
+      };
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
   registerUserService: async (userRegisterDetailData) => {
     const {
       username, email, password, role,

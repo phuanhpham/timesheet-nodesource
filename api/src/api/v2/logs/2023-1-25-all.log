@@ -1,0 +1,49 @@
+2023-01-25 06:05:20:520 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 06:33:16:3316 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 06:34:22:3422 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 06:34:27:3427 [35mhttp[39m: [35m::ffff:172.20.0.1 GET /v2/users/1 401 - - 9.600 ms[39m
+[35m[39m
+2023-01-25 06:44:50:4450 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 06:46:49:4649 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 06:46:56:4656 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 06:47:23:4723 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 06:48:28:4828 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 06:48:45:4845 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 06:49:27:4927 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 06:50:42:5042 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 06:52:08:528 [35mhttp[39m: [35m::ffff:172.20.0.1 POST /v2/users/register 200 429 - 235.484 ms[39m
+[35m[39m
+2023-01-25 06:52:13:5213 [35mhttp[39m: [35m::ffff:172.20.0.1 GET /v2/users/1 401 - - 4.851 ms[39m
+[35m[39m
+2023-01-25 06:52:24:5224 [35mhttp[39m: [35m::ffff:172.20.0.1 GET /v2/users/1 200 373 - 54.473 ms[39m
+[35m[39m
+2023-01-25 06:53:10:5310 [35mhttp[39m: [35m::ffff:172.20.0.1 POST /v2/users/register 200 429 - 154.100 ms[39m
+[35m[39m
+2023-01-25 06:54:19:5419 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 06:54:30:5430 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 06:55:11:5511 [35mhttp[39m: [35m::ffff:172.20.0.1 POST /v2/users/register 200 429 - 225.291 ms[39m
+[35m[39m
+2023-01-25 06:55:14:5514 [35mhttp[39m: [35m::ffff:172.20.0.1 POST /v2/users/register 500 463 - 115.033 ms[39m
+[35m[39m
+2023-01-25 06:55:31:5531 [35mhttp[39m: [35m::ffff:172.20.0.1 POST /v2/users/register 200 430 - 130.492 ms[39m
+[35m[39m
+2023-01-25 06:55:53:5553 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 06:56:02:562 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 07:08:23:823 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 07:09:18:918 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 07:13:26:1326 [31merror[39m: [31m[39m
+[31m SequelizeConnectionRefusedError: connect ECONNREFUSED 172.21.0.2:3306[39m
+2023-01-25 07:17:35:1735 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 07:20:23:2023 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 07:21:48:2148 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 07:22:21:2221 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 07:22:29:2229 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 07:22:38:2238 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 07:22:41:2241 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 07:23:56:2356 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 07:24:10:2410 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 07:25:09:259 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 07:25:30:2530 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 07:27:47:2747 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 07:28:03:283 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 08:33:27:3327 [32minfo[39m: [32mMYSQL::: Connect successfully[39m

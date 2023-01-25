@@ -55,12 +55,12 @@ const transports = [
   new winston.transports.Console(),
   // Allow to print all the error level messages inside the error.log file
   new winston.transports.File({
-    filename: `./src/api/v1/logs/${date}-error.log`,
+    filename: `./src/api/v2/logs/${date}-error.log`,
     level: 'error',
   }),
   // Allow to print all the error message inside the all.log file
   // (also the error log that are also printed inside the error.log(
-  new winston.transports.File({ filename: `./src/api/v1/logs/${date}-all.log` }),
+  new winston.transports.File({ filename: `./src/api/v2/logs/${date}-all.log` }),
 ];
 
 // Create the logger instance that has to be exported

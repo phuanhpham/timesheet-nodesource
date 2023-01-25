@@ -2,10 +2,10 @@ name: Lint
 
 on:
   push:
-    branches: [main]
+    branches: [main, dev]
   
   pull_request:
-    branches: [main]
+    branches: [main, dev]
 
 jobs:
   run-linters:
@@ -22,11 +22,10 @@ jobs:
           node-version: 19
 
       - name: Intsall Node.js Dependencies
-        run: cd ./api
-        run: npm ci
+        run: cd ./api && npm ci
       
       - name: Run Linters
-        run: npm run lint:fix
+        run: cd ./api && npm run lint:fix
         continue-on-error: true
 
   

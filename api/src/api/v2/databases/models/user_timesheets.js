@@ -1,4 +1,7 @@
 const { Model } = require('sequelize');
+const { UserRequestsModel } = require('./index');
+
+const TRIGGER_CONDITIONS = ['holiday', 'absenteeism'];
 
 module.exports = (sequelize, DataTypes) => {
   class userTimesheets extends Model {
@@ -55,5 +58,15 @@ module.exports = (sequelize, DataTypes) => {
       modelName: 'UserTimesheetsModel',
     },
   );
+
+  userTimesheets.addHook('afterCreate', async (userTimesheet) => {
+    if (TRIGGER_CONDITIONS.includes(userTimesheet.status)) {
+      UserRequestsModel.create({
+        userId: userTimesheet.userId,
+        user_timesheet_id: userTimesheet.id,
+        status: userTimesheet.status,
+      });
+    }
+  });
   return userTimesheets;
 };

@@ -3,6 +3,7 @@ const {
   loginUserService,
   getAllUserService,
   googleAuthService,
+  getUserInfosByIdService,
 } = require('../services/user.services');
 
 module.exports = {
@@ -15,7 +16,14 @@ module.exports = {
       next(error);
     }
   },
-
+  getUserInfosByIdController: async (req, res, next) => {
+    try {
+      const userInfo = await getUserInfosByIdService(req.params.id);
+      res.status(200).json(userInfo);
+    } catch (error) {
+      next(error);
+    }
+  },
   registerUserController: async (req, res, next) => {
     try {
       const user = await registerUserService(req.body);

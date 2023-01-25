@@ -5,6 +5,7 @@ const {
   registerUserController,
   loginUserController,
   registerGoogleUserController,
+  getUserInfosByIdController,
 } = require('../controllers/user.controller');
 
 const { registerUserValidate, loginUserValidate } = require('../validate/users/user.validate');
@@ -19,6 +20,11 @@ router.get(
   }),
   getAllUsersController,
 );
+
+// GetUserInfos [GET]
+router.get('/:id', passport.authenticate('jwt', {
+  session: false,
+}), getUserInfosByIdController);
 
 // Register [POST]
 router.post('/register', registerUserValidate, registerUserController);

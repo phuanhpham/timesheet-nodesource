@@ -135,3 +135,5 @@
 2023-01-25 05:54:01:541 [31merror[39m: [31m[39m
 [31m SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '[], `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`' at line 1[39m
 2023-01-25 05:57:52:5752 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 05:58:25:5825 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
+2023-01-25 06:05:15:515 [32minfo[39m: [32mMYSQL::: Connect successfully[39m
