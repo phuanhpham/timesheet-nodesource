@@ -29,6 +29,6 @@ jobs:
         continue-on-error: true
 
       - name: Verify Linted
-        run: echo "Linted all"
+        run: echo "Linted"
 
   
