@@ -28,4 +28,7 @@ jobs:
         run: cd ./api && npm run lint:fix
         continue-on-error: true
 
+      - name: Verify Linted
+        run: echo "Linted all"
+
   

@@ -3,6 +3,11 @@ name: Build Image And Push
 on:
   push:
     branches: [main]
+
+  workflow_run:
+    workflows: [lint]
+    types:
+      - completed
     
 jobs:
   docker:
