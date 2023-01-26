@@ -1,13 +1,12 @@
-const { UserTimesheetsModel, UserModel } = require('../databases/models');
+const { UserTimesheetManagementsModel, UserTimesheetDetailsModel } = require('../databases/models');
 
 module.exports = {
   getAllTimesheetService: async () => {
     try {
-      const timesheets = await UserTimesheetsModel.findAll({
+      const timesheets = await UserTimesheetManagementsModel.findAll({
         icludes: [
           {
-            model: UserModel,
-            as: 'users',
+            model: UserTimesheetDetailsModel,
           },
         ],
       });
@@ -21,6 +20,60 @@ module.exports = {
       return {
         status: '10200',
         timesheets,
+      };
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
+  getTimesheetByUserService: async (id) => {
+    try {
+      const timesheets = await UserTimesheetManagementsModel.findAll(
+        {
+          where: {
+            userId: id,
+          },
+        },
+        {
+          icludes: [
+            {
+              model: UserTimesheetDetailsModel,
+            },
+          ],
+        },
+        {
+          order: [['date_time', 'DESC']],
+        },
+      );
+
+      if (!timesheets.length) {
+        return {
+          status: '10200',
+          msg: 'Dont have any timesheets',
+        };
+      }
+
+      return {
+        status: '10200',
+        timesheets,
+      };
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
+  createTimesheetService: async (timesheetDetailData) => {
+    try {
+      const createdTimesheet = UserTimesheetDetailsModel.create({
+        ...timesheetDetailData,
+      });
+
+      if (!createdTimesheet) {
+        return {
+          status: '10500',
+          msg: 'Can not create timesheet',
+        };
+      }
+      return {
+        status: '10200',
       };
     } catch (error) {
       throw new Error(error);

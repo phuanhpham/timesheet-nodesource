@@ -13,7 +13,7 @@ passport.use(
     },
     async (payload, done) => {
       try {
-        const { username, role } = payload.data;
+        const { username } = payload.data;
 
         const user = await UserModel.findOne({
           where: {
@@ -22,9 +22,7 @@ passport.use(
         });
         if (!user) return done('Invalid user', false);
 
-        if (user && role === 'admin') return done(null, user);
-
-        return done(null, false);
+        return done(null, user);
       } catch (error) {
         done(error, false);
       }

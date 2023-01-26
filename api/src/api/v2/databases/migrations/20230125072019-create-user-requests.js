@@ -17,13 +17,21 @@ module.exports = {
           as: 'userId',
         },
       },
-      user_timesheet_id: {
+      user_timesheet_details_id: {
         type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      user_timesheets_managements_id: {
+        type: Sequelize.STRING,
         allowNull: false,
       },
       status: {
         type: Sequelize.ENUM,
-        values: ['schedule', 'holiday', 'absenteeism'],
+        values: ['pending', 'approved'],
+      },
+      approver: {
+        type: Sequelize.INTEGER,
+        defaultValue: null,
       },
       createdAt: {
         allowNull: false,

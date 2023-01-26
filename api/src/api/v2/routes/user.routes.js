@@ -9,7 +9,7 @@ const {
 } = require('../controllers/user.controller');
 
 const { registerUserValidate, loginUserValidate } = require('../validate/users/user.validate');
-
+const { isAdmin, isUser } = require('../middlewares/authorizer/authorizer.middlewares');
 require('../middlewares/passport/passport.middleware');
 
 // GetAllUser [GET]
@@ -18,13 +18,19 @@ router.get(
   passport.authenticate('jwt', {
     session: false,
   }),
+  isAdmin,
   getAllUsersController,
 );
 
 // GetUserInfos [GET]
-router.get('/:id', passport.authenticate('jwt', {
-  session: false,
-}), getUserInfosByIdController);
+router.get(
+  '/:id',
+  passport.authenticate('jwt', {
+    session: false,
+  }),
+  isUser,
+  getUserInfosByIdController,
+);
 
 // Register [POST]
 router.post('/register', registerUserValidate, registerUserController);
