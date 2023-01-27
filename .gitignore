@@ -1,1 +1,2 @@
 /.docker
+/api/src/api/v2/logs/*

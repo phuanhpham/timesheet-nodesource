@@ -8,8 +8,8 @@ on:
     branches: [develop]
 
 jobs:
-  run-linters:
-    name: Run Linters
+  run-linters-api:
+    name: Run Linters Api
     runs-on: ubuntu-latest
 
     steps:
@@ -29,6 +29,30 @@ jobs:
         continue-on-error: true
 
       - name: Verify Linted
-        run: echo "Linted"
+        run: echo "Linted BackEnd"
+
+  run-linters-client:
+    name: Run Linters Client
+    needs: [run-linters-api]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out git repository
+        uses: actions/checkout@v2
+
+      - name: Setup Nodejs 
+        uses: actions/setup-node@v1
+        with:
+          node-version: 19
+
+      - name: Intsall Node.js Dependencies
+        run: cd ./client && npm ci
+      
+      - name: Run Linters
+        run: cd ./client && npm run lint:fix
+        continue-on-error: true
+
+      - name: Verify Linted
+        run: echo "Linted FrontEnd"
 
   

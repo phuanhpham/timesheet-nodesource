@@ -50,9 +50,27 @@ services:
     networks:
       - timesheet_db_networks
       - timesheet_cache_networks
+      - timesheet_web_networks
     volumes:
       - ./api/src:/app/src
       - ./api/tests:/app/tests
+
+  client:
+    container_name: timesheet_client
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+      target: dev
+    restart: unless-stopped
+    ports: 
+      - 3000:3000
+    command: [sh, -c, 'npm run serve']
+    depends_on:
+      - api
+    networks:
+      - timesheet_web_networks
+    volumes:
+      - ./client/src:/app/src
 
   mongodb:
     container_name: timesheet_mongodb
@@ -77,6 +95,8 @@ services:
     
     
 networks:
+  timesheet_web_networks:
+      driver: bridge
   timesheet_db_networks:
     driver: bridge
   timesheet_cache_networks:
