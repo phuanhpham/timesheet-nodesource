@@ -4,11 +4,6 @@
   </h1>
 </template>
 
-<script>
+<script setup>
 
-export default {
-  name: 'HomeView',
-  components: {
-  }
-}
 </script>
