@@ -1,26 +1,4 @@
-<!--
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
 <template>
-  <!--
-    This example requires updating your template:
-
-    ```
-    <html class="h-full bg-gray-50">
-    <body class="h-full">
-    ```
-  -->
   <div class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
     <div class="w-full max-w-md space-y-8">
       <div>
@@ -32,6 +10,7 @@
         class="mt-8 space-y-6"
         action="#"
         method="POST"
+        @submit="handleRegister"
       >
         <input
           type="hidden"
@@ -46,6 +25,7 @@
             >Username</label>
             <input
               id="username"
+              v-model="registerUser.username"
               name="username"
               type="text"
               autocomplete="username"
@@ -61,6 +41,7 @@
             >Email address</label>
             <input
               id="email-address"
+              v-model="registerUser.email"
               name="email"
               type="email"
               autocomplete="email"
@@ -76,6 +57,7 @@
             >Password</label>
             <input
               id="password"
+              v-model="registerUser.password"
               name="password"
               type="password"
               autocomplete="current-password"
@@ -86,13 +68,20 @@
           </div>
         </div>
 
+        <div class="flex items-center justify-between bg-red-50 rounded-sm">
+          <span
+            v-if="error.isError"
+            class="text-red-500 p-1.5"
+          > * {{ error.msg }}</span>
+        </div>
+
         <div class="flex items-center justify-between">
           <div class="text-sm">
             <router-link :to="{name: 'Login'}">
               <span
                 class="cursor-pointer font-medium text-indigo-600 hover:text-indigo-500"
               >
-                Already exist account or login with google.
+                Already exist account.
               </span>
             </router-link>
           </div>
@@ -105,9 +94,31 @@
           >
             <span class="absolute inset-y-0 left-0 flex items-center pl-3">
               <LockClosedIcon
+                v-if="!isLoading"
                 class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
                 aria-hidden="true"
               />
+              <svg
+                v-if="isLoading"
+                class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  class="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  stroke-width="4"
+                />
+                <path
+                  class="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                />
+              </svg>
             </span>
             Sign Up
           </button>
@@ -118,5 +129,46 @@
 </template>
 
 <script setup>
-import { LockClosedIcon } from '@heroicons/vue/20/solid'
+import { LockClosedIcon } from '@heroicons/vue/20/solid';
+import { ref } from "vue";
+import { useAuthStore } from "@/store/index";
+import { storeToRefs  } from "pinia";
+import { HTTP_STATUS } from "@/helpers/constans";
+import router from "@/router";
+
+let registerUser = {
+  username: "",
+  email: "",
+  password: ""
+}
+
+let error = ref({
+  isError: false,
+  msg: "",
+})
+
+const authStore = useAuthStore();
+const { isLoading } = storeToRefs(authStore)
+
+const handleRegister = async (e) => {
+  e.preventDefault();
+  try {
+    const res = await authStore.register(registerUser);
+    if(HTTP_STATUS.SUCESS.includes(res.status)){
+      localStorage.setItem("userAuth", JSON.stringify(res));
+      router.push({name: "Home"});
+    } else {
+      error.value.isError = true;
+      error.value.msg = res.msg;
+    }
+  } catch (e) {
+    console.log(error)
+  }
+}
+
+
+</script>
+
+<script>
+  
 </script>

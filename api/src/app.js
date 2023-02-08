@@ -17,7 +17,9 @@ require('./config/databases/init.mysql')();
 app.use(helmet());
 // app.use(morganMiddleware);
 app.use(morganMiddlewarev2);
-app.use(cors());
+app.use(cors({
+  origin: '*',
+}));
 
 // add body-parser
 app.use(express.json());

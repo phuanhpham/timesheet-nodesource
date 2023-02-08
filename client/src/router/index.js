@@ -1,33 +1,29 @@
 import { createRouter, createWebHistory } from "vue-router";
-import MainLayout from "@/layouts/MainLayout";
-import BlankLayout from "@/layouts/BlankLayout";
-import HomeView from "@/views/HomeView";
-import LoginView from "@/views/LoginView";
-import RegisterView from "@/views/RegisterView";
+import routes from "./routes";
 
-const routes = [
-  {
-    path: "/",
-    redirect: "/home",
-    name: "Home",
-    component: MainLayout,
-    children: [{ path: "/home", name: "Home", component: HomeView }],
-  },
-  {
-    path: "/auth",
-    redirect: "/login",
-    name: "Auth",
-    component: BlankLayout,
-    children: [
-      { path: "/login", name: "Login", component: LoginView },
-      { path: "/register", name: "Register", component: RegisterView },
-    ],
-  },
-];
+const DEFAULT_TITLE = "TimeSheet";
+const ROUTES_NAME_RULE = ["Login", "Register"];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.requireAuth && !localStorage.getItem("userAuth")) {
+    next({ name: "Register" });
+  } else if (
+    ROUTES_NAME_RULE.includes(to.name) &&
+    localStorage.getItem("userAuth")
+  ) {
+    next({ name: "Home" });
+  } else {
+    next();
+  }
+});
+
+router.afterEach((to) => {
+  document.title = to.meta.title || DEFAULT_TITLE;
 });
 
 export default router;

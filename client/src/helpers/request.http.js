@@ -1,13 +1,24 @@
 import axios from "axios";
 
-const BASE_URL = process.env.BASE_URL || "http://localhost:9000";
+const BASE_URL = "http://localhost:9000/v2";
 
-const axiosClient = axios.create({
+const requestServer = axios.create({
   baseURL: BASE_URL,
+  timeout: 600000,
   headers: {
     "Content-Type": "application/json",
   },
-  withCredentials: true,
 });
 
-export default axiosClient;
+requestServer.interceptors.response.use(
+  function (res) {
+    return res;
+  },
+  function(error) {
+    return { data : error.response.data}
+  }
+)
+
+export const API = {
+  requestServer,
+};

@@ -102,8 +102,7 @@ module.exports = {
         };
       }
 
-      const isPass = bcrypt.compare(password, user.password);
-
+      const isPass = await bcrypt.compare(password, user.password);
       if (!isPass) {
         return {
           status: '10403',

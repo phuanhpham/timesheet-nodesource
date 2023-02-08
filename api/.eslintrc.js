@@ -12,5 +12,7 @@ module.exports = {
   },
   rules: {
     camelcase: 'off',
+    'consistent-return': 'off',
+    'no-useless-computed-key': 'off',
   },
 };

@@ -1,10 +1,15 @@
 <template>
-  <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-md w-full space-y-8">
+  <div class="min-h-screen flex bg-slate-100">
+    <Sidebar :user-info="userAuth.user" />
+    <main class="flex-1 p-4">
       <router-view />
-    </div>
+    </main>
   </div>
 </template>
 
 <script setup>
+import Sidebar from "@/components/shared/Sidebar.vue";
+
+const userAuth = JSON.parse(localStorage.getItem('userAuth')) || null;
+
 </script>

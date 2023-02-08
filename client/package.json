@@ -8,12 +8,18 @@
     "lint:fix": "eslint --fix --ext .js,.jsx ."
   },
   "dependencies": {
+    "@fullcalendar/core": "^6.1.1",
+    "@fullcalendar/daygrid": "^6.1.1",
+    "@fullcalendar/interaction": "^6.1.1",
+    "@fullcalendar/timegrid": "^6.1.1",
+    "@fullcalendar/vue3": "^6.1.2",
     "axios": "^1.2.5",
     "babel-plugin-module-resolver": "^5.0.0",
     "core-js": "^3.8.3",
+    "pinia": "^2.0.29",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
-    "vue3-google-login": "^2.0.12",
+    "vue3-google-oauth2": "^1.0.6",
     "vuex": "^4.0.0"
   },
   "devDependencies": {
