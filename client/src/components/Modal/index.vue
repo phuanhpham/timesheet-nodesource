@@ -22,7 +22,7 @@
       <div class="">
         <slot />
       </div>
-      <div class="w-full bg-slate-200 rounded-b-lg flex justify-between items-center pl-4 pr-4">
+      <div class="w-full bg-slate-200 rounded-b-lg flex justify-end items-center pl-4 pr-4">
         <slot name="actions" />
       </div>
     </div>
