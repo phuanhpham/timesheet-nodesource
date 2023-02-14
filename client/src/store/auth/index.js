@@ -31,7 +31,9 @@ export const useAuthStore = defineStore({
       }
     },
     async logout() {
-      localStorage.removeItem(LOCAL_STORAGE.USER_AUTH);
+      for(let i in LOCAL_STORAGE){
+        localStorage.removeItem(i)
+      }
     }
   },
 });

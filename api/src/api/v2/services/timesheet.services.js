@@ -1,4 +1,7 @@
-const { UserTimesheetManagementsModel, UserTimesheetDetailsModel } = require('../databases/models');
+const {
+  UserTimesheetManagementsModel,
+  UserTimesheetDetailsModel,
+} = require('../databases/models');
 
 module.exports = {
   getAllTimesheetService: async () => {
@@ -27,18 +30,11 @@ module.exports = {
   },
   getTimesheetByUserService: async (id) => {
     try {
-      const timesheets = await UserTimesheetManagementsModel.findAll(
+      const timesheets = await UserTimesheetDetailsModel.findAll(
         {
           where: {
             userId: id,
           },
-        },
-        {
-          icludes: [
-            {
-              model: UserTimesheetDetailsModel,
-            },
-          ],
         },
         {
           order: [['date_time', 'DESC']],

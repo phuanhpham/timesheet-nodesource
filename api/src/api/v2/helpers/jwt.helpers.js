@@ -10,7 +10,7 @@ module.exports = {
     },
     process.env.KEY_SECRET,
     {
-      expiresIn: '1h',
+      expiresIn: '365d',
     },
   ),
 

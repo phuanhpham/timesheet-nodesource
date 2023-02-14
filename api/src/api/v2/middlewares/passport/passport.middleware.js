@@ -9,10 +9,11 @@ passport.use(
   new JwtStrategy(
     {
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-      secretOrKey: process.env.KEY_SECRET || 'secretkey',
+      secretOrKey: process.env.KEY_SECRET,
     },
     async (payload, done) => {
       try {
+        console.log(payload);
         const { username } = payload.data;
 
         const user = await UserModel.findOne({

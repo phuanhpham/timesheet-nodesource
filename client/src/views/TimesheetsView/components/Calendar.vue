@@ -14,14 +14,14 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent, onMounted } from "vue";
 import FullCalendar from '@fullcalendar/vue3';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from '@fullcalendar/interaction';
 import EventModal from "./EventModal.vue";
 import { useTimesheetsStore } from "@/store"
-import { storeToRefs  } from "pinia";
+import { storeToRefs } from "pinia";
 
 export default defineComponent({
     name: "Calendar",
@@ -30,10 +30,14 @@ export default defineComponent({
         FullCalendar, // make the <FullCalendar> tag available
     },
     setup() {
-        const { events } = storeToRefs(useTimesheetsStore());
-
+        const timesheetStore = useTimesheetsStore();
+        const { getEvents } = storeToRefs(useTimesheetsStore());
+        onMounted(async () => {
+            await timesheetStore.getAllEvents();
+        })
         return {
-            events
+            getEvents,
+            timesheetStore
         }
     },
     data() {
@@ -53,7 +57,7 @@ export default defineComponent({
                 allDaySlot: false,
                 weekends: true,
                 select: this.handleSelectCalendar,
-                events: this.events,
+                events: this.getEvents,
             },
             isShowModal: false,
             info: {},
@@ -65,11 +69,12 @@ export default defineComponent({
             this.info = payload;
             this.isShowModal = true;
         },
-        handleClodeModal(){
+        handleClodeModal() {
             this.isShowModal = false;
         },
         handlePublishEvent(event) {
-            console.log(this.events)
+            this.timesheetStore.insertEvent(event);
+            this.isShowModal = false;
         }
     }
 })

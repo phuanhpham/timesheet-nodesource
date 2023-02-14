@@ -178,6 +178,7 @@ const handleLogin = async (e) => {
     const res = await authStore.loginWithoutGoogle(req);
     if(HTTP_STATUS.SUCESS.includes(res.status)){
       localStorage.setItem("userAuth", JSON.stringify(res));
+      localStorage.setItem("accessToken", res.accessToken);
       router.push({name: "Home"})
     }else {
       error.value.isError = true;

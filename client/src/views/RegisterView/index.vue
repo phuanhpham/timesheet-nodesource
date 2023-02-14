@@ -155,7 +155,8 @@ const handleRegister = async (e) => {
   try {
     const res = await authStore.register(registerUser);
     if(HTTP_STATUS.SUCESS.includes(res.status)){
-      localStorage.setItem("userAuth", JSON.stringify(res));
+      localStorage.setItem("userAuth", JSON.stringify(res.user));
+      localStorage.setItem("accessToken", res.user.accessToken);
       router.push({name: "Home"});
     } else {
       error.value.isError = true;

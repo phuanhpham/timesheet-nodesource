@@ -97,6 +97,7 @@ export default {
   methods: {
     handleLogout() {
       localStorage.removeItem('userAuth');
+      localStorage.removeItem('accessToken');
       router.push({ name: "Login" });
     }
   }

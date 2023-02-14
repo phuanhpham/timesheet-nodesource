@@ -1,6 +1,6 @@
 const { Model } = require('sequelize');
 
-const TRIGGER_CONDITIONS = ['holiday', 'absenteeism'];
+const TRIGGER_CONDITIONS = ['holiday'];
 
 module.exports = (sequelize, DataTypes) => {
   class UserTimesheetDetails extends Model {
@@ -31,18 +31,15 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      description: {
-        type: DataTypes.STRING,
-      },
-      start_time: {
+      start: {
         type: DataTypes.DATE,
       },
-      end_time: {
+      end: {
         type: DataTypes.DATE,
       },
       type: {
         type: DataTypes.ENUM,
-        values: ['schedule', 'holiday', 'absenteeism'],
+        values: ['schedule', 'holiday', 'leave'],
         defaultValue: 'schedule',
       },
       status: {
@@ -52,6 +49,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       approver: {
         type: DataTypes.INTEGER,
+        allowNull: true,
       },
     },
     {

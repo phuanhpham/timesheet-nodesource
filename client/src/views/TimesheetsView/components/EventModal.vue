@@ -147,7 +147,6 @@ export default defineComponent({
   },
   setup: (props) => {
     let isShowApprover = ref(false);
-    console.log(props.info.start.getHours().toString().padStart(2, '0'))
     let event = reactive({
       type: "schedule",
       title: "",
@@ -174,16 +173,15 @@ export default defineComponent({
     onCloseModal() {
       this.$emit("handleClodeModal");
     },
-    onPublishEvent() {
-      console.log(this.event)
-      // this.$emit("handlePublishEvent", {
-      //   date: new Date(this.eventDate),
-      //   type: this.event.type,
-      //   title: this.event.title,
-      //   from: new Date(`${this.eventDate}T${this.event.from}`),
-      //   to: new Date(`${this.eventDate}T${this.event.to}`),
-      //   approver: this.event.approver,
-      // })
+    onPublishEvent() {      
+      this.$emit("handlePublishEvent", {
+        date: this.info.startStr.split('T')[0],
+        title: this.event.title,
+        type: this.event.type,
+        start: `${this.info.startStr.split('T')[0]}T${this.event.from}`,
+        end: `${this.info.endStr.split('T')[0]}T${this.event.to}`,
+        approver: this.event.approver || null,
+      })
     }
   }
 })

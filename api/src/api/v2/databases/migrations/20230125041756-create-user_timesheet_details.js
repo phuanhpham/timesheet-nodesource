@@ -30,13 +30,10 @@ module.exports = {
           as: 'userId',
         },
       },
-      description: {
-        type: Sequelize.STRING,
-      },
-      start_time: {
+      start: {
         type: Sequelize.DATE,
       },
-      end_time: {
+      end: {
         type: Sequelize.DATE,
       },
       type: {
