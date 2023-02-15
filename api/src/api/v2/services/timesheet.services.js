@@ -28,12 +28,12 @@ module.exports = {
       throw new Error(error);
     }
   },
-  getTimesheetByUserService: async (id) => {
+  getTimesheetByUserService: async (userId) => {
     try {
       const timesheets = await UserTimesheetDetailsModel.findAll(
         {
           where: {
-            userId: id,
+            userId,
           },
         },
         {

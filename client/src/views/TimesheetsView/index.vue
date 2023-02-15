@@ -3,16 +3,28 @@
     <h1 class="mb-4">
       Timesheets
     </h1>
-    <Calendar />
+    <div v-if="getLoading">
+      <Loading />
+    </div>
+    <Calendar
+      v-if="!getLoading"
+      :events="getEvents"
+    />
   </div>
 </template>
 
 <script setup>
 import Calendar from "./components/Calendar.vue";
-</script>
+import { useTimesheetsStore } from "@/store"
+import { storeToRefs } from "pinia";
+import { onMounted } from "vue";
+import { Loading } from "@/components/shared/Loading.vue";
 
-<script>
-export default {
+const timesheetsStore = useTimesheetsStore();
+const { getEvents, getLoading } = storeToRefs(timesheetsStore);
 
-}
+onMounted(async () => {
+  await timesheetsStore.getAllEvents();
+});
+
 </script>

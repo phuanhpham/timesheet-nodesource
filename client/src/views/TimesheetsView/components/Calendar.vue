@@ -14,14 +14,13 @@
 </template>
 
 <script>
-import { defineComponent, onMounted } from "vue";
+import { defineComponent } from "vue";
 import FullCalendar from '@fullcalendar/vue3';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from '@fullcalendar/interaction';
 import EventModal from "./EventModal.vue";
 import { useTimesheetsStore } from "@/store"
-import { storeToRefs } from "pinia";
 
 export default defineComponent({
     name: "Calendar",
@@ -29,15 +28,17 @@ export default defineComponent({
         EventModal,
         FullCalendar, // make the <FullCalendar> tag available
     },
+    props: {
+        events: {
+            type: Array,
+            required: true,
+        }
+    },
     setup() {
-        const timesheetStore = useTimesheetsStore();
-        const { getEvents } = storeToRefs(useTimesheetsStore());
-        onMounted(async () => {
-            await timesheetStore.getAllEvents();
-        })
+        const timesheetsStore = useTimesheetsStore();
+
         return {
-            getEvents,
-            timesheetStore
+            timesheetsStore,
         }
     },
     data() {
@@ -57,7 +58,8 @@ export default defineComponent({
                 allDaySlot: false,
                 weekends: true,
                 select: this.handleSelectCalendar,
-                events: this.getEvents,
+                eventClick: this.handleEventClick,
+                events: this.events,
             },
             isShowModal: false,
             info: {},
@@ -65,7 +67,6 @@ export default defineComponent({
     },
     methods: {
         handleSelectCalendar(payload) {
-            console.log(payload)
             this.info = payload;
             this.isShowModal = true;
         },
@@ -73,8 +74,11 @@ export default defineComponent({
             this.isShowModal = false;
         },
         handlePublishEvent(event) {
-            this.timesheetStore.insertEvent(event);
             this.isShowModal = false;
+            this.timesheetsStore.insertEvent(event)
+        },
+        handleEventClick(payload){
+            console.log("::handleEventClick", payload)
         }
     }
 })

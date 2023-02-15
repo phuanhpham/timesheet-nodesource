@@ -17,7 +17,7 @@ module.exports = {
     try {
       const timesheets = await getTimesheetByUserService(req.params.id);
       res.status(200).json({
-        timesheets,
+        ...timesheets,
       });
     } catch (error) {
       next(error);
