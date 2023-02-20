@@ -7,25 +7,41 @@
     <EventModal
       v-if="isShowModal"
       :info="info && info"
-      @handleClodeModal="handleClodeModal"
-      @handlePublishEvent="handlePublishEvent"
+      @handle-clode-modal="handleClodeModal"
+      @handle-publish-event="handlePublishEvent"
+    />
+
+    <EventDetailModal 
+      v-if="isShowDetailModal"
+      :info="info && info"
+      @handle-clode-modal="handleClodeModal"
+      @handle-update-modal="handleUpdateModal"
     />
   </div>
 </template>
 
 <script>
 import { defineComponent } from "vue";
+
+/* -------------------------------------------------------------------------------------*/
+import { useTimesheetsStore } from "@/store"
+
+/* -------------------------------------------------------------------------------------*/
 import FullCalendar from '@fullcalendar/vue3';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from '@fullcalendar/interaction';
+
+/* -------------------------------------------------------------------------------------*/
 import EventModal from "./EventModal.vue";
-import { useTimesheetsStore } from "@/store"
+import EventDetailModal from "./EventDetailModel.vue";
+
 
 export default defineComponent({
     name: "Calendar",
     components: {
         EventModal,
+        EventDetailModal,
         FullCalendar, // make the <FullCalendar> tag available
     },
     props: {
@@ -51,7 +67,8 @@ export default defineComponent({
                     center: "title",
                     right: "dayGridMonth,timeGridWeek,timeGridDay",
                 },
-                editable: true,
+                timeZone: "local",
+                editable: false,
                 selectable: true,
                 selectMirror: false,
                 dayMaxEvents: true,
@@ -62,6 +79,7 @@ export default defineComponent({
                 events: this.events,
             },
             isShowModal: false,
+            isShowDetailModal: false,
             info: {},
         }
     },
@@ -72,13 +90,25 @@ export default defineComponent({
         },
         handleClodeModal() {
             this.isShowModal = false;
+            this.isShowDetailModal = false;
         },
-        handlePublishEvent(event) {
+        async handlePublishEvent(event) {
+            await this.timesheetsStore.insertEvent(event)
             this.isShowModal = false;
-            this.timesheetsStore.insertEvent(event)
         },
-        handleEventClick(payload){
-            console.log("::handleEventClick", payload)
+        handleEventClick(payload) {
+            const {event} = payload;
+            this.isShowDetailModal = true;
+            this.info = {
+                id: event._def.publicId,
+                title: event.title,
+                type: event.extendedProps.type,
+                start: event._instance.range.start,
+                end: event._instance.range.end,
+            };
+        }, 
+        handleUpdateModal(payload) {
+            console.log(":::handleUpdateModal", payload)
         }
     }
 })
@@ -88,4 +118,5 @@ export default defineComponent({
 .calendar-wrapper {
     max-height: 720px;
 }
+
 </style>

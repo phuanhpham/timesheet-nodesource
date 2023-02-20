@@ -1,13 +1,11 @@
 <template>
   <Modal
-    :id-modal="`event-modal-id`"
-    :title="`Event Modal`"
-    @handleCloseOverlay="onCloseModal"
-    @handleCloseModal="onCloseModal"
+    :id-modal="`event-detail-modal-id`"
+    :title="`Event Detail Modal`"
   >
     <template #default>
-      <div
-        v-if="getEventLoading"
+      <div 
+        v-if="getEventLoading" 
         class="absolute flex justify-center items-center h-3/5 w-full"
       >
         <Loading />
@@ -74,6 +72,7 @@
                   v-model="event.from"
                   type="time"
                   name="from"
+                  step="900"
                   autocomplete="time"
                   class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                 >
@@ -88,6 +87,7 @@
                 <input
                   id="to"
                   v-model="event.to"
+                  step="30000"
                   type="time"
                   name="to"
                   autocomplete="time"
@@ -121,9 +121,9 @@
     <template #actions>
       <button
         class="px-8 py-2 m-2 rounded-lg bg-gray-800 text-white hover:bg-gray-400 hover:text-black font-bold"
-        @click="onPublishEvent"
+        @click="onUpdateEvent"
       >
-        Publish
+        Update
       </button>
       <button
         class="px-8 py-2 m-2 rounded-lg bg-rose-500 text-white hover:bg-rose-200 hover:text-red-500 font-bold"
@@ -159,23 +159,21 @@ export default defineComponent({
   },
   setup: (props) => {
     const { getEventLoading } = storeToRefs(useTimesheetsStore());
+
     let isShowApprover = ref(false);
-    let initFrom = "";
-    let initTo = "";
-    if (props.info.view.type === "dayGridMonth") {
-      initFrom = "00:00:00";
-      initTo = "00:00:00";
-    } else {
-      initFrom = `${props.info.startStr.split("T")[1].split("+")[0]}`;
-      initTo = `${props.info.endStr.split("T")[1].split("+")[0]}`;
+
+    if(SHOW_APPOVER.includes(props.info.type)){
+      isShowApprover.value = true;
     }
+
     let event = reactive({
-      type: "schedule",
-      title: "",
-      from: initFrom,
-      to: initTo,
+      type: props.info.type,
+      title: props.info.title,
+      from: `${(props.info.start.getHours() - 9).toString().padStart(2, '0')}:${props.info.start.getMinutes().toString().padStart(2, '0')}`,
+      to: `${(props.info.end.getHours() - 9).toString().padStart(2, '0')}:${props.info.end.getMinutes().toString().padStart(2, '0')}`,
       approver: "",
     });
+    
     watch(
       () => event.type,
       (newVal) => {
@@ -196,16 +194,16 @@ export default defineComponent({
     onCloseModal() {
       this.$emit("handleClodeModal");
     },
-    onPublishEvent() {
-      this.$emit("handlePublishEvent", {
-        date: this.info.startStr.split('T')[0],
-        title: this.event.title,
+    onUpdateEvent() {
+      this.$emit("handleUpdateModal", {
+        id: this.info.id,
         type: this.event.type,
+        title: this.event.title,
         start: new Date(`${this.info.startStr.split('T')[0]}T${this.event.from}`).toISOString(),
         end: new Date(`${this.info.endStr.split('T')[0]}T${this.event.to}`).toISOString(),
-        approver: this.event.approver || null,
-      });
-    },
+        approver: this.approver,
+      })
+    }
   },
 });
 </script>

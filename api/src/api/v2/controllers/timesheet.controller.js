@@ -26,7 +26,7 @@ module.exports = {
   createTimesheetController: async (req, res, next) => {
     try {
       const createdTimesheets = await createTimesheetService(req.body);
-      res.status(200).json({ createdTimesheets });
+      res.status(200).json({ ...createdTimesheets });
     } catch (error) {
       next(error);
     }

@@ -32,8 +32,16 @@ requestServer.interceptors.response.use(
     return res;
   },
   function (error) {
+    console.log(error)
+    if(error.code === "ERR_BAD_RESPONSE") {
+      return {
+        data: {
+          statusCode: "10500",
+        }
+      }
+    }
     return {
-      data: error,
+      data: error.response.data,
     }
   }
 );

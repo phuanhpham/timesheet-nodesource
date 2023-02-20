@@ -17,7 +17,7 @@ module.exports = {
         users,
       };
     } catch (error) {
-      throw new Error(error);
+      return new Error(error);
     }
   },
   getUserInfosByIdService: async (id) => {
@@ -46,7 +46,7 @@ module.exports = {
         userInfo,
       };
     } catch (error) {
-      throw new Error(error);
+      return new Error(error);
     }
   },
   registerUserService: async (userRegisterDetailData) => {
@@ -82,7 +82,7 @@ module.exports = {
 
       return { user, accessToken };
     } catch (error) {
-      throw new Error(error);
+      return new Error(error);
     }
   },
 
@@ -118,7 +118,7 @@ module.exports = {
         accessToken,
       };
     } catch (error) {
-      throw new Error(error);
+      return new Error(error);
     }
   },
 

@@ -58,7 +58,7 @@ module.exports = {
   },
   createTimesheetService: async (timesheetDetailData) => {
     try {
-      const createdTimesheet = UserTimesheetDetailsModel.create({
+      const createdTimesheet = await UserTimesheetDetailsModel.create({
         ...timesheetDetailData,
       });
 
@@ -70,6 +70,7 @@ module.exports = {
       }
       return {
         status: '10200',
+        createdTimesheet,
       };
     } catch (error) {
       throw new Error(error);

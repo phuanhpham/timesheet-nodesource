@@ -32,10 +32,12 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       start: {
-        type: DataTypes.DATE,
+        type: DataTypes.STRING,
+        allowNull: false,
       },
       end: {
-        type: DataTypes.DATE,
+        type: DataTypes.STRING,
+        allowNull: false,
       },
       type: {
         type: DataTypes.ENUM,

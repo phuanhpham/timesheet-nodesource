@@ -78,7 +78,7 @@
           <div class="text-sm">
             <a
               href="#"
-              class="font-medium text-indigo-600 hover:text-indigo-500"
+              class="font-medium text-slate-600 hover:text-indigo-500"
             >Forgot your password?</a>
           </div>
         </div>
@@ -86,7 +86,7 @@
         <div class="flex items-center justify-between">
           <div class="text-sm">
             <router-link :to="{ name: 'Register' }">
-              <span class="cursor-pointer font-medium text-indigo-600 hover:text-indigo-500">
+              <span class="cursor-pointer font-medium text-slate-600 hover:text-indigo-500">
                 Go to sign up account
               </span>
             </router-link>
@@ -97,12 +97,12 @@
         <div>
           <button
             type="submit"
-            class="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            class="group relative flex w-full justify-center rounded-md border border-transparent bg-slate-600 py-2 px-4 text-sm font-medium text-white hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
           >
             <span class="absolute inset-y-0 left-0 flex items-center pl-3">
               <LockClosedIcon
                 v-if="!isLoading"
-                class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
+                class="h-5 w-5 text-slate-200"
                 aria-hidden="true"
               />
               <svg
@@ -141,7 +141,7 @@ import { useAuthStore } from "@/store/index";
 import { storeToRefs  } from "pinia";
 import { HTTP_STATUS } from "@/helpers/constans";
 import router from "@/router";
-import { ref, inject } from 'vue';
+import { ref } from 'vue';
 
 let user = {
   username: localStorage.getItem("userRemember") !== null ? JSON.parse(localStorage.getItem("userRemember")).username : "",

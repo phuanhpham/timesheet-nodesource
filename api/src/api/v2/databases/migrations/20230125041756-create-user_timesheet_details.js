@@ -31,10 +31,12 @@ module.exports = {
         },
       },
       start: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       end: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       type: {
         type: Sequelize.ENUM,
