@@ -6,4 +6,7 @@ const LOCAL_STORAGE = {
 const HTTP_STATUS = {
   SUCESS: ["10200"],
 }
-export { LOCAL_STORAGE, HTTP_STATUS};
+
+const SHOW_APPOVER = ["holiday"];
+
+export { LOCAL_STORAGE, HTTP_STATUS, SHOW_APPOVER};

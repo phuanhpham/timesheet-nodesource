@@ -17,13 +17,17 @@ module.exports = {
           as: 'userId',
         },
       },
+      type: {
+        type: Sequelize.ENUM,
+        values: ['timesheets', 'assets'],
+      },
       user_timesheet_details_id: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
       },
       user_timesheets_managements_id: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       status: {
         type: Sequelize.ENUM,

@@ -2,6 +2,8 @@
   <Modal
     :id-modal="`event-detail-modal-id`"
     :title="`Event Detail Modal`"
+    @handleCloseOverlay="onCloseModal"
+    @handleCloseModal="onCloseModal"
   >
     <template #default>
       <div 
@@ -135,16 +137,17 @@
   </Modal>
 </template>
 <script>
-
-
-import { defineComponent } from "vue";
-import Modal from "@/components/Modal"
-import { reactive, watch, ref } from "vue";
-import Loading from "@/components/shared/Loading.vue";
+import { reactive, watch, ref, defineComponent } from "vue";
 import { useTimesheetsStore } from "@/store"
 import { storeToRefs } from "pinia";
 
-const SHOW_APPOVER = ["holiday"];
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+import { SHOW_APPOVER } from "@/helpers/constans";
+import { convert2String } from "@/helpers/utils"
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+import Loading from "@/components/shared/Loading.vue";
+import Modal from "@/components/Modal"
 
 export default defineComponent({
   components: {
@@ -171,7 +174,7 @@ export default defineComponent({
       title: props.info.title,
       from: `${(props.info.start.getHours() - 9).toString().padStart(2, '0')}:${props.info.start.getMinutes().toString().padStart(2, '0')}`,
       to: `${(props.info.end.getHours() - 9).toString().padStart(2, '0')}:${props.info.end.getMinutes().toString().padStart(2, '0')}`,
-      approver: "",
+      approver: props.info.approver,
     });
     
     watch(
@@ -199,9 +202,9 @@ export default defineComponent({
         id: this.info.id,
         type: this.event.type,
         title: this.event.title,
-        start: new Date(`${this.info.startStr.split('T')[0]}T${this.event.from}`).toISOString(),
-        end: new Date(`${this.info.endStr.split('T')[0]}T${this.event.to}`).toISOString(),
-        approver: this.approver,
+        start: convert2String(this.info.start.toISOString(), this.event.from),
+        end: convert2String(this.info.start.toISOString(), this.event.to),
+        approver: this.event.approver,
       })
     }
   },

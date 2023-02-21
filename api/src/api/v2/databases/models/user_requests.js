@@ -1,8 +1,7 @@
-const {
-  Model,
-} = require('sequelize');
+const { Model } = require('sequelize');
 
 const TRIGGER_CONDITIONS = ['approved'];
+const TRIGGER_CONDITIONS_2 = ['timesheets'];
 
 module.exports = (sequelize, DataTypes) => {
   class userRequests extends Model {
@@ -19,35 +18,46 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
   }
-  userRequests.init({
-    userId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
+  userRequests.init(
+    {
+      userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      type: {
+        type: DataTypes.ENUM,
+        values: ['timesheets', 'assets'],
+        allowNull: false,
+      },
+      user_timesheet_details_id: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+      },
+      user_timesheets_managements_id: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      status: {
+        type: DataTypes.ENUM,
+        values: ['pending', 'approved'],
+      },
+      approver: {
+        type: DataTypes.INTEGER,
+        defaultValue: null,
+      },
     },
-    user_timesheet_details_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
+    {
+      sequelize,
+      tableName: 'user_requests',
+      modelName: 'UserRequestsModel',
     },
-    user_timesheets_managements_id: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    status: {
-      type: DataTypes.ENUM,
-      values: ['pending', 'approved'],
-    },
-    approver: {
-      type: DataTypes.INTEGER,
-      defaultValue: null,
-    },
-  }, {
-    sequelize,
-    tableName: 'user_requests',
-    modelName: 'UserRequestsModel',
-  });
+  );
 
   userRequests.addHook('afterUpdate', async (userRequestsDetails) => {
-    if (TRIGGER_CONDITIONS.includes(userRequestsDetails.status)) {
+    if (
+      TRIGGER_CONDITIONS.includes(userRequestsDetails.status)
+      && TRIGGER_CONDITIONS_2.includes(userRequestsDetails.type)
+    ) {
       await sequelize.models.UserTimesheetDetailsModel.update(
         { status: 'done' },
         {

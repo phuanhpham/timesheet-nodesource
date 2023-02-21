@@ -14,7 +14,6 @@
       </div>
       <form
         action="#"
-        method="POST"
       >
         <div class="overflow-hidden shadow">
           <div class="bg-white px-4 py-5 sm:p-6">
@@ -135,16 +134,18 @@
   </Modal>
 </template>
 <script>
-
-
-import { defineComponent } from "vue";
-import Modal from "@/components/Modal"
-import { reactive, watch, ref } from "vue";
-import Loading from "@/components/shared/Loading.vue";
+import { reactive, watch, ref, defineComponent } from "vue";
 import { useTimesheetsStore } from "@/store"
 import { storeToRefs } from "pinia";
 
-const SHOW_APPOVER = ["holiday"];
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+import { SHOW_APPOVER } from "@/helpers/constans";
+import { convert2String } from "@/helpers/utils";
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+import Modal from "@/components/Modal";
+import Loading from "@/components/shared/Loading.vue";
+
 
 export default defineComponent({
   components: {
@@ -163,8 +164,8 @@ export default defineComponent({
     let initFrom = "";
     let initTo = "";
     if (props.info.view.type === "dayGridMonth") {
-      initFrom = "00:00:00";
-      initTo = "00:00:00";
+      initFrom = "09:00:00";
+      initTo = "19:00:00";
     } else {
       initFrom = `${props.info.startStr.split("T")[1].split("+")[0]}`;
       initTo = `${props.info.endStr.split("T")[1].split("+")[0]}`;
@@ -201,8 +202,8 @@ export default defineComponent({
         date: this.info.startStr.split('T')[0],
         title: this.event.title,
         type: this.event.type,
-        start: new Date(`${this.info.startStr.split('T')[0]}T${this.event.from}`).toISOString(),
-        end: new Date(`${this.info.endStr.split('T')[0]}T${this.event.to}`).toISOString(),
+        start: convert2String(this.info.startStr, this.event.from),
+        end: convert2String(this.info.startStr, this.event.from),
         approver: this.event.approver || null,
       });
     },

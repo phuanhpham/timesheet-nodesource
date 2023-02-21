@@ -64,6 +64,7 @@ module.exports = (sequelize, DataTypes) => {
     if (TRIGGER_CONDITIONS.includes(timesheetDetails.type)) {
       await sequelize.models.UserRequestsModel.create({
         userId: timesheetDetails.userId,
+        type: 'timesheets',
         user_timesheet_details_id: timesheetDetails.id,
         user_timesheets_managements_id: timesheetDetails.user_timesheets_managements_id,
         status: 'pending',

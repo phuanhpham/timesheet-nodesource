@@ -3,6 +3,8 @@ import { API } from "@/helpers/request.http";
 import { URLS } from "@/helpers/urls";
 import { LOCAL_STORAGE } from "@/helpers/constans";
 
+/* -------------------------------------------------------------------------------------*/
+
 export const useTimesheetsStore = defineStore({
   id: "timesheetsStore",
   state: () => ({
@@ -45,6 +47,7 @@ export const useTimesheetsStore = defineStore({
             start: data.createdTimesheet.start,
             end: data.createdTimesheet.end,
             type: data.createdTimesheet.type,
+            approver: data.createdTimesheet.approver,
           });
         }
         this.isEventLoading = false;
@@ -72,6 +75,7 @@ export const useTimesheetsStore = defineStore({
               start: e.start,
               end: e.end,
               type: e.type,
+              approver: e.approver,
             };
           });
           this.events = events;
@@ -82,5 +86,16 @@ export const useTimesheetsStore = defineStore({
         this.error.errorMsg = "Something went wrong!";
       }
     },
+    async updateEvent(payload) {
+      this.isEventLoading = true;
+      try {
+        const { data } = await API.requestServer.put(`${URLS.UPDATE_TIMESHEETS}/${payload.id}`, payload);
+        this.isEventLoading = false;
+      } catch (error) {
+        this.error.isError = true;
+        this.error.errorMsg = "Something went wrong!";
+      }
+      this.getAllEvents();
+    }
   },
 });

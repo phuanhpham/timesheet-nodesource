@@ -25,7 +25,7 @@ module.exports = {
         timesheets,
       };
     } catch (error) {
-      throw new Error(error);
+      return new Error(error);
     }
   },
   getTimesheetByUserService: async (userId) => {
@@ -53,7 +53,7 @@ module.exports = {
         timesheets,
       };
     } catch (error) {
-      throw new Error(error);
+      return new Error(error);
     }
   },
   createTimesheetService: async (timesheetDetailData) => {
@@ -73,7 +73,34 @@ module.exports = {
         createdTimesheet,
       };
     } catch (error) {
-      throw new Error(error);
+      return new Error(error);
+    }
+  },
+  updateTimesheetService: async (timesheetDetailData, id) => {
+    try {
+      const updatedTimesheet = await UserTimesheetDetailsModel.update(
+        {
+          ...timesheetDetailData,
+        },
+        {
+          where: {
+            id,
+          },
+        },
+      );
+
+      if (!updatedTimesheet) {
+        return {
+          status: '10500',
+        };
+      }
+
+      return {
+        status: '10200',
+        updatedTimesheet,
+      };
+    } catch (error) {
+      return new Error(error);
     }
   },
 };

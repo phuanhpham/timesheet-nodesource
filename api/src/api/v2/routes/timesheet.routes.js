@@ -7,6 +7,7 @@ const {
   getAllTimesheetController,
   getTimesheetByUserController,
   createTimesheetController,
+  updateTimesheetController,
 } = require('../controllers/timesheet.controller');
 
 const { timesheetValidator } = require('../validate/timesheets/timesheets.validate');
@@ -40,6 +41,16 @@ router.post(
   isUser,
   timesheetValidator,
   createTimesheetController,
+);
+
+// UpdateTimesheet [PUT]
+router.put(
+  '/:id',
+  passport.authenticate('jwt', {
+    session: false,
+  }),
+  isUser,
+  updateTimesheetController,
 );
 
 module.exports = router;

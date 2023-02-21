@@ -13,7 +13,7 @@
 
     <EventDetailModal 
       v-if="isShowDetailModal"
-      :info="info && info"
+      :info="info"
       @handle-clode-modal="handleClodeModal"
       @handle-update-modal="handleUpdateModal"
     />
@@ -52,7 +52,6 @@ export default defineComponent({
     },
     setup() {
         const timesheetsStore = useTimesheetsStore();
-
         return {
             timesheetsStore,
         }
@@ -85,6 +84,7 @@ export default defineComponent({
     },
     methods: {
         handleSelectCalendar(payload) {
+            console.log(":::handleSelectCalendar", payload)
             this.info = payload;
             this.isShowModal = true;
         },
@@ -103,12 +103,13 @@ export default defineComponent({
                 id: event._def.publicId,
                 title: event.title,
                 type: event.extendedProps.type,
+                approver: event.extendedProps.approver,
                 start: event._instance.range.start,
                 end: event._instance.range.end,
             };
         }, 
-        handleUpdateModal(payload) {
-            console.log(":::handleUpdateModal", payload)
+        async handleUpdateModal(payload) {
+            await this.timesheetsStore.updateEvent(payload)
         }
     }
 })
